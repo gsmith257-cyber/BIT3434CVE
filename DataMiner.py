@@ -53,7 +53,7 @@ def exploitdb_searching(name):
     return [description, date, file]
     
 
-for i in range(2002, 2022):
+for i in range(2002, 2023):
     data_files.append("data/" + filename + str(i) + filetype)
 
 
@@ -121,6 +121,9 @@ for file in data_files:
                 sheet.append(toWrite)
                 wb.save(data_store)
             if "REJECT" in data["CVE_Items"][i]["cve"]["description"]["description_data"][0]["value"]:
+                #skip this CVE
+                continue
+            if data["CVE_Items"][i]["impact"] == {}:
                 #skip this CVE
                 continue
             cve_id = data["CVE_Items"][i]["cve"]["CVE_data_meta"]["ID"]
