@@ -53,7 +53,7 @@ def exploitdb_searching(name):
     return [description, date, file]
     
 
-for i in range(2013, 2022):
+for i in range(2002, 2022):
     data_files.append("data/" + filename + str(i) + filetype)
 
 
